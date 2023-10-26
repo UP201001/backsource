@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Phone Call</title>
+    <base href="/" />
+    <link rel="icon" href="favicon.ico" />
+    <link type="text/css" rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <main>
+      <!-- <img src="logo2.svg" alt="DFINITY logo" /> -->
+      <!-- <form action="#">
+        <label for="name">Enter your name: &nbsp;</label>
+        <input id="name" alt="Name" type="text" />
+        <button type="submit">Click Me!</button>
+      </form> -->
+      <!-- HTML -->
+<video id="localVideo" autoplay></video>
+<video id="remoteVideo" autoplay></video>
+<button onclick="startCall()">Start Call</button>
+<button onclick="endCall()">End Call</button>
+
+<script>
+  let localStream;
+  let remoteStream;
+  let localVideo = document.getElementById("localVideo");
+  let remoteVideo = document.getElementById("remoteVideo");
+
+  async function startCall() {
+    try {
+      localStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+      localVideo.srcObject = localStream;
+
+      // Code to establish WebRTC connection with remote peer
+
+    } catch (error) {
+      console.error("Error starting call:", error);
+    }
+  }
+
+  function endCall() {
+    // Code to end the WebRTC connection
+  }
+</script>
+      <section id="greeting"></section>
+    </main>
+  </body>
+</html>
+
+<!-- HTML for audio -->
+<!-- 
+<audio id="localAudio" autoplay></audio>
+<audio id="remoteAudio" autoplay></audio>
+<button onclick="startCall()">Start Call</button>
+<button onclick="endCall()">End Call</button>
+
+<script>
+  let localStream;
+  let remoteStream;
+  let localAudio = document.getElementById("localAudio");
+  let remoteAudio = document.getElementById("remoteAudio");
+
+  async function startCall() {
+    try {
+      localStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      localAudio.srcObject = localStream;
+
+      // Code to establish WebRTC connection with remote peer
+
+    } catch (error) {
+      console.error("Error starting call:", error);
+    }
+  }
+
+  function endCall() {
+    // Code to end the WebRTC connection
+  }
+</script> -->
